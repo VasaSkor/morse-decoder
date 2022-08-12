@@ -35,11 +35,14 @@ const MORSE_TABLE = {
     '---..':  '8',
     '----.':  '9',
     '-----':  '0',
-};
-
-function decode(expr) {
-    // write your solution here
 }
+
+    function decode(expr) {
+        let starString = expr.split('*********')
+        let morseTableDecode = starString.map(w => w.match(/[0,1]{10}/g).map(l => MORSE_TABLE[l.replace(/^0+/,'').replace(/10/g,'.').replace(/11/g,'-')]).join(''))
+        return morseTableDecode.join(' ');
+    }
+    
 
 module.exports = {
     decode
